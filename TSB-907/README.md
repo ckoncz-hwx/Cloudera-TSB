@@ -11,14 +11,29 @@ The commands need to be executed in a CML session started using the newer (7.2.9
 As always, a backup of the database must be created before running the script.
 
 ## standalone CML/CAI applications:
-Back up the database at `~/.arc/arcviz.db`: `cp ./.arc/arcviz.db ./.arc/arcviz.bak.db`
+
+1. Back up the database at `~/.arc/arcviz.db`:
+
+```
+cp ./.arc/arcviz.db ./.arc/arcviz.bak.db
+```
+
+2. Apply the fix:
+
 ```
 /opt/vizapps/venv/bin/python -m arcweb.manage shell -c 'from script_fix_broken_migration import main; main()'
 ```
 
-
 ## CDV embedded in the DATA tab:
-Back up the database at `~/.explore/arcviz.db`: `cp ./.explore/arcviz.db ./.explore/arcviz.bak.db`
+
+1. Back up the database at `~/.explore/arcviz.db`:
+
+```
+cp ./.explore/arcviz.db ./.explore/arcviz.bak.db
+```
+
+2. Apply the fix:
+
 ```
 CDV_SUB_MODE=MLExplore \
 BASEDIR=/home/cdsw/.explore \
